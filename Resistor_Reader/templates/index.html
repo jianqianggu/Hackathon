@@ -1,0 +1,25 @@
+
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8  offset-lg-2">
+
+			
+            <h2 class="mt-5">Resistor Reader</h2>
+			<form method="post" action="{{ url_for('tasks') }}">
+			<input type="submit" value="Stop/Start" name="stop" />
+			<input type="submit" value="Resistor" name="neg" />
+            <img src="{{ url_for('video_feed') }}" height="70%">
+			<h3 style="font-family:courier;">Instructions:</h3>
+			<ol style="font-family:courier;">
+			<li>Stop/Start--Toggle between stop or start live feed</li>
+			<li>Toggle the resistor reading program (also clear program hangs)</li>
+			<h3>Credit to:Hemanth Nag for his live streaming app which this was built on top off</h3>
+			<h3>https://github.com/hemanth-nag/Camera_Flask_App</h3>
+			<h3>and Borna Houmani-Farahani for the OpenCV model</h3>
+			<h3>https://github.com/dishonesthips/OhmVision</h3> </ol>	
+			
+        </div>
+    </div>
+</div>
+</body>
