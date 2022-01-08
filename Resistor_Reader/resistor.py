@@ -67,9 +67,9 @@ def detect_resistor(frame):
         roi_color = frame[y:y+h, x:x+w]
 
         #apply another detection to filter false positives
-        secondPass = rectCascade.detectMultiScale(roi_gray,1.01,5)
+        #secondPass = rectCascade.detectMultiScale(roi_gray,1.01,5)
 
-        if (len(secondPass) != 0):
+        if (True):
             resClose.append((np.copy(roi_color),(x,y,w,h)))
     return resClose
 
@@ -169,13 +169,8 @@ def printResult(sortedBands, liveimg, resPos):
 
 def gen_frames():  # generate frame by frame from camera
     global out, capture,rec_frame,last_time
-    last_time=0.
-    fps_limit=1
     while True:
         success, frame = camera.read() 
-        if(abs(int(time.time()-last_time))<fps_limit):
-            break
-
         if success:
             if(face):                
                 frame= detect_face(frame)
@@ -231,7 +226,7 @@ def tasks():
         elif  request.form.get('grey') == 'Grey':
             global grey
             grey=not grey
-        elif  request.form.get('neg') == 'Negative':
+        elif  request.form.get('res') == 'Resistor':
             global neg
             neg=not neg
         elif  request.form.get('face') == 'Face Only':
